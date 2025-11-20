@@ -1,0 +1,66 @@
+﻿@page
+@model PantherPetManagement_PhanKhanhDuong.Pages.Function.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].PantherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].Characteristics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].Warning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PantherProfile[0].PantherType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PantherProfile) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PantherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Characteristics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Warning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PantherType.PantherTypeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PantherProfileId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PantherProfileId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PantherProfileId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
