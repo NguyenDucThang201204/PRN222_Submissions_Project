@@ -1,0 +1,36 @@
+﻿@page
+@model PantherPetManagement_TrinhHaiDuc.Pages.PantherProfile.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+<h1>Detail</h1>
+
+<div class="form-group">
+    <label><strong>PantherProfileId</strong></label>
+    <input asp-for="Detail.PantherProfileId" class="form-control" readonly />
+
+    <label><strong>PantherName</strong></label>
+    <input asp-for="Detail.PantherName" class="form-control" readonly />
+
+
+    <label><strong>Weight</strong></label>
+    <input asp-for="Detail.Weight" class="form-control" readonly />
+
+
+    <label><strong>Characteristics</strong></label>
+    <input asp-for="Detail.Characteristics" class="form-control" readonly />
+
+
+    <label><strong>Warning</strong></label>
+    <input asp-for="Detail.Warning" class="form-control" readonly />
+
+
+    <label><strong>ModifiedDate</strong></label>
+    <input asp-for="Detail.ModifiedDate" class="form-control" readonly/>
+
+
+    <label><strong>PantherTypeId</strong></label>
+    <input asp-for="Detail.PantherType.PantherTypeName" class="form-control" readonly />
+
+</div>
+<a asp-page="/PantherProfile/Index" class="btn btn-primary">Cancel</a>
