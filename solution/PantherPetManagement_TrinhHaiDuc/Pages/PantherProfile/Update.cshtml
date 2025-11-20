@@ -1,0 +1,53 @@
+﻿@page
+@model PantherPetManagement_TrinhHaiDuc.Pages.PantherProfile.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+<h1>Update</h1>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Updating.PantherProfileId"/>
+
+        <label>PantherName</label>
+        <span asp-validation-for="Updating.PantherName" class="text-danger"></span>
+        <input asp-for="Updating.PantherName" class="form-control" />
+
+
+        <label>Weight</label>
+        <span asp-validation-for="Updating.Weight" class="text-danger"></span>
+        <input asp-for="Updating.Weight" class="form-control"  />
+
+
+        <label>Characteristics</label>
+        <span asp-validation-for="Updating.Characteristics" class="text-danger"></span>
+        <input asp-for="Updating.Characteristics" class="form-control"  />
+
+
+        <label>Warning</label>
+        <span asp-validation-for="Updating.Warning" class="text-danger"></span>
+        <input asp-for="Updating.Warning" class="form-control"  />
+
+
+        <label>ModifiedDate</label>
+        <span asp-validation-for="Updating.ModifiedDate" class="text-danger"></span>
+        <input asp-for="Updating.ModifiedDate" class="form-control" />
+
+
+        <label>PantherTypeId</label>
+        <span asp-validation-for="Updating.PantherTypeId" class="text-danger"></span>
+        <select asp-for="Updating.PantherTypeId" asp-items="@(new SelectList(Model.ComboBox, "PantherTypeId", "PantherTypeName"))" class="form-control">
+          
+        </select>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-page="/PantherProfile/Index" class="btn btn-primary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
