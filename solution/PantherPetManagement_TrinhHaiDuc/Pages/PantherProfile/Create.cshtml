@@ -1,0 +1,52 @@
+﻿@page
+@model PantherPetManagement_TrinhHaiDuc.Pages.PantherProfile.CreateModel
+@{
+    ViewData["Title"] = "Create";
+
+}
+<h1>Create</h1>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post">
+    <div class="form-group">
+        <label>PantherName</label>
+        <span asp-validation-for="Add.PantherName" class="text-danger"></span>
+        <input asp-for="Add.PantherName" class="form-control" value="" />
+       
+
+        <label>Weight</label>
+        <span asp-validation-for="Add.Weight" class="text-danger"></span>
+        <input asp-for="Add.Weight" class="form-control" value="" />
+       
+
+        <label>Characteristics</label>
+        <span asp-validation-for="Add.Characteristics" class="text-danger"></span>
+        <input asp-for="Add.Characteristics" class="form-control" value="" />
+      
+
+        <label>Warning</label>
+        <span asp-validation-for="Add.Warning" class="text-danger"></span>
+        <input asp-for="Add.Warning" class="form-control" value="" />
+        
+
+        <label>ModifiedDate</label>
+        <span asp-validation-for="Add.ModifiedDate" class="text-danger"></span>
+        <input asp-for="Add.ModifiedDate" class="form-control"  />
+        
+
+
+        <label>PantherTypeId</label>
+        <span asp-validation-for="Add.PantherTypeId" class="text-danger"></span>
+        <select asp-for="Add.PantherTypeId" asp-items="@(new SelectList(Model.ComboBox, "PantherTypeId", "PantherTypeName"))" class="form-control">
+            <option value="">-- Select Type --</option>
+        </select>
+        
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="/PantherProfile/Index" class="btn btn-primary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
