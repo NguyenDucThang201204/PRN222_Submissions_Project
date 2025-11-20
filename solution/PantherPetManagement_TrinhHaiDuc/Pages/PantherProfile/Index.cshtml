@@ -1,0 +1,63 @@
+﻿@page
+@model PantherPetManagement_TrinhHaiDuc.Pages.PantherProfile.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+<div asp-validation-summary="All"></div>
+<a asp-page="/PantherProfile/Create" class="btn btn-primary">Create</a>
+<a asp-page="/PantherProfile/Search" class="btn btn-primary">Search</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PantherProfileId</th>
+            <th>PantherTypeId</th>
+            <th>PantherName</th>
+            <th>Weight</th>
+            <th>Characteristics</th>
+            <th>Warning</th>
+            <th>ModifiedDate</th>
+            <th>PantherTypeName</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entity in Model.Entities)
+        {
+            <tr id="row-@entity.PantherProfileId">
+                <td>@entity.PantherProfileId</td>
+                <td>@entity.PantherTypeId</td>
+                <td>@entity.PantherName</td>
+                <td>@entity.Weight</td>
+                <td>@entity.Characteristics</td>
+                <td>@entity.Warning</td>
+                <td>@entity.ModifiedDate</td>
+                <td>@entity.PantherType.PantherTypeName</td>
+                <td>
+                    <a asp-page="/PantherProfile/Detail" asp-route-Id="@entity.PantherProfileId" class="btn btn-primary">Detail</a>
+                    <a asp-page="/PantherProfile/Update" asp-route-Id="@entity.PantherProfileId" class="btn btn-primary">Update</a>
+                    <a asp-page="/PantherProfile/Delete" asp-route-Id="@entity.PantherProfileId" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.TotalPage > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.TotalPage; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a asp-page="/PantherProfile/Index" asp-route-PageIndex="@i" class="page-link">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+@section Scripts {
+    <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
+    <script src="~/js/Reload.js"></script>
+}
