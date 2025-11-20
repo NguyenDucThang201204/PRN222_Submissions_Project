@@ -1,0 +1,39 @@
+﻿@page
+@model PantherPetManagement_TrinhHaiDuc.Pages.PantherProfile.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+<h1>Delete</h1>
+<div class="form-group">
+    <label><strong>PantherProfileId</strong></label>
+    <input asp-for="Delete.PantherProfileId" class="form-control" readonly />
+
+    <label><strong>PantherName</strong></label>
+    <input asp-for="Delete.PantherName" class="form-control" readonly />
+
+
+    <label><strong>Weight</strong></label>
+    <input asp-for="Delete.Weight" class="form-control" readonly />
+
+
+    <label><strong>Characteristics</strong></label>
+    <input asp-for="Delete.Characteristics" class="form-control" readonly />
+
+
+    <label><strong>Warning</strong></label>
+    <input asp-for="Delete.Warning" class="form-control" readonly />
+
+
+    <label><strong>ModifiedDate</strong></label>
+    <input asp-for="Delete.ModifiedDate" class="form-control" readonly />
+
+
+    <label><strong>PantherTypeId</strong></label>
+    <input asp-for="Delete.PantherType.PantherTypeName" class="form-control" readonly />
+
+</div>
+<form method="post">
+    <input type="hidden" asp-for="Delete.PantherProfileId" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-page="/PantherProfile/Index" class="btn btn-primary">Cancel</a>
+</form>
